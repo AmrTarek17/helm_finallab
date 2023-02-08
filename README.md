@@ -30,7 +30,7 @@ helm upgrade -f default_values.yaml my-sonarqube sonarqube/sonarqube
 
 ### Runing sonarqube screen 
 
-![image](https://user-images.githubusercontent.com/47079437/217656346-33dd572a-76b0-4b07-a7ac-e9ba3bec7558.png)
+![image](https://user-images.githubusercontent.com/47079437/217665910-3c248bb6-9f14-41fa-9bda-8a33a05c719d.png)
 
 ## install Jenkins useing Helm
 
