@@ -85,7 +85,39 @@ integrate SonarQube with Jenkins
 
 ![image](https://user-images.githubusercontent.com/47079437/217663083-097aad59-edf1-4258-afb7-5541a6b69537.png)
 
+* jenkins pipeline
 
+```
+pipeline{
+    agent any
+    environment {
+        PATH = "$PATH:/usr/share/maven/bin"
+    }
+    stages{
+       stage('code-stage'){
+            steps{
+                git 'https://github.com/ravdy/hello-world'
+            }
+         }        
+       stage('build-stage'){
+            steps{
+                sh 'mvn clean package'
+            }
+         }
+        stage('SonarQube-stage') {
+        steps{
+        withSonarQubeEnv('sonarqube') { 
+        sh "mvn sonar:sonar"
+    }
+        }
 
+```
 
-Bonus: add multibranch plugins
+* pipe line sonarqube test from jenkins side for java app
+
+![image](https://user-images.githubusercontent.com/47079437/217697858-996c74c5-d01f-4008-b9d3-edd0ea78ad19.png)
+
+* java app on sonarqube side
+
+ ![image](https://user-images.githubusercontent.com/47079437/217698100-79950572-a498-4b5f-89e3-16a6de9f4ba0.png)
+
